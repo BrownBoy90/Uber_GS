@@ -2,7 +2,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        ZStack {
+        NavigationStack {
             ZStack {
                 ScrollView(showsIndicators: false) {
                     // Uber =>Always Fixed
