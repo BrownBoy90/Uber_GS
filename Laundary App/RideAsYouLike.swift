@@ -7,24 +7,27 @@
 
 import SwiftUI
 
-struct WaysToSaveWithUber: View {
+struct RideAsYouLike: View {
+    var RideAsYouLike_Image: ImageResource
+    var RideAsYouLike_Title: String
+    var RideAsYouLike_Description: String
     var body: some View {
         HStack {
             VStack {
-                Image(.rectangle30)
+                Image(RideAsYouLike_Image)
                     .resizable()
                     .scaledToFit()
                     .frame(width: 250, height: 140)
                 
                 VStack(alignment: .leading) {
                     HStack {
-                        Text("Uber Moto rides")
+                        Text(RideAsYouLike_Title)
                         Image(systemName: "arrow.right")
                     }
                     .fontWeight(.medium)
                     .foregroundColor(.black)
                     
-                    Text("Affordable motorcycle pick-ups")
+                    Text(" ")
                         .fontWeight(.light)
                         .foregroundColor(.black)
                 }
@@ -35,5 +38,5 @@ struct WaysToSaveWithUber: View {
 }
 
 #Preview {
-    WaysToSaveWithUber()
+    RideAsYouLike(RideAsYouLike_Image: .rectangle30, RideAsYouLike_Title: "Uber Moto rides", RideAsYouLike_Description: "Affordable motorcycle pick-ups")
 }

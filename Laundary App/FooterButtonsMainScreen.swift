@@ -8,14 +8,16 @@
 import SwiftUI
 
 struct FooterButtonsMainScreen: View {
+    var footerICon: ImageResource
+    var footerIconText: String
     var body: some View {
         VStack {
-            Image(.iconHome)
+            Image(footerICon)
                 .resizable()
                 .scaledToFit()
                 .frame(width: 60, height: 60)
             
-            Text("Home")
+            Text(footerIconText)
                 .padding(.top, -20)
                 .foregroundColor(.black)
         }
@@ -23,5 +25,5 @@ struct FooterButtonsMainScreen: View {
 }
 
 #Preview {
-    FooterButtonsMainScreen()
+    FooterButtonsMainScreen(footerICon: .iconHome, footerIconText: "Home")
 }

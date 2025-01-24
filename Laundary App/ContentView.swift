@@ -5,13 +5,7 @@ struct ContentView: View {
         NavigationStack {
             ZStack {
                 ScrollView(showsIndicators: false) {
-                    // Uber =>Always Fixed
-                    // 2 Buttons in a row: Default SearchIcon "Enter pickup point" and CalendarSymbol "Later"
-                    //Scrollable from here
-                    //                NavigationLink  {
-                    //                    PlanYourRide()
-                    //                }
-                    HStack(spacing: 10) { // Adjust spacing as needed
+                    HStack(spacing: 10) {
                         NavigationLink(destination: PlanYourRide()){
                             HStack {
                                 Image(systemName: "magnifyingglass")
@@ -29,7 +23,9 @@ struct ContentView: View {
                             .font(.headline)
                             .foregroundStyle(.black)
                         
-                        Button(action: {}) {
+                        Button{
+                            
+                        } label: {
                             HStack {
                                 Image(systemName: "calendar")
                                 Text("Later")
@@ -124,13 +120,30 @@ struct ContentView: View {
                     
                     //Button array 1)Trip 2)UberAuto 3)Moto 4)Courier
                     LazyVGrid(columns: [GridItem(),GridItem(),GridItem(),GridItem()]) {
-                        ForEach(0..<4){_ in
-                            Button{
-                                
-                            } label: {
-                                Suggestions_Icons()
-                            }
+                        Button{
+                            
+                        } label: {
+                            Suggestions_Icons(Suggestions_icons: .carUber, Suggestions_Text: "Ride")
                         }
+                        
+                        Button{
+                            
+                        } label: {
+                            Suggestions_Icons(Suggestions_icons: .image4, Suggestions_Text: "Package")
+                        }
+                        
+                        Button{
+                            
+                        } label: {
+                            Suggestions_Icons(Suggestions_icons: .rentals, Suggestions_Text: "Rentals")
+                        }
+                        
+                        Button{
+                            
+                        } label: {
+                            Suggestions_Icons(Suggestions_icons: .reserve, Suggestions_Text: "Reserve")
+                        }
+                        
                     }
                     .padding(.horizontal)
                     //Commute Smarter
@@ -147,14 +160,12 @@ struct ContentView: View {
                     
                     ScrollView(.horizontal, showsIndicators: false){
                         HStack {
-                            ForEach(0..<5){_ in
-                                Button {
-                                    
-                                } label: {
-                                    WaysToSaveWithUber()
-                                }
-                                .padding(.horizontal, 2)
+                            Button {
+                                
+                            } label: {
+                                RideAsYouLike(RideAsYouLike_Image: .rectangle30, RideAsYouLike_Title: "Uber Moto rides", RideAsYouLike_Description: "Affordable motorcycle pick-ups")
                             }
+                            .padding(.horizontal, 2)
                         }
                     }
                     
@@ -174,7 +185,7 @@ struct ContentView: View {
                                 Button {
                                     
                                 } label: {
-                                    WaysToSaveWithUber()
+                                    RideAsYouLike()
                                 }
                                 .padding(.horizontal, 2)
                             }
@@ -188,17 +199,37 @@ struct ContentView: View {
                     Spacer()
                     ZStack(alignment: .bottom) {
                         Color.white
-                        HStack {
-                            ForEach(0..<4){_ in
-                                Button {
-                                    
-                                } label: {
-                                    FooterButtonsMainScreen()
-                                }
-                                .padding(.horizontal)
-                                .padding(.bottom)
+                        LazyVGrid(columns: [GridItem(), GridItem(), GridItem(), GridItem()]){
+                            Button {
+                                
+                            } label: {
+                                FooterButtonsMainScreen(footerICon: .iconHome, footerIconText: "Home")
                             }
+//                            .padding(.horizontal)
+                            
+                            Button {
+                                    
+                            } label: {
+                                FooterButtonsMainScreen(footerICon: .iconServices, footerIconText: "Services")
+                            }
+//                            .padding(.horizontal)
+                            
+                            Button {
+                                    
+                            } label: {
+                                FooterButtonsMainScreen(footerICon: .iconActivity, footerIconText: "Activity")
+                            }
+//                            .padding(.horizontal)
+                            
+                            Button {
+                                    
+                            } label: {
+                                FooterButtonsMainScreen(footerICon: .iconAccount, footerIconText: "Account")
+                            }
+//                            .padding(.horizontal)
                         }
+                        .padding(.bottom)
+                        .padding(.horizontal,15)
                     }
                     .frame(height: 75)
                 }
